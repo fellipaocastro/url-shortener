@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} - URL{% endblock %}
+{% block content %}
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    URL criada com sucesso!
+</div>
+<h3>URL</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>URL curta</th>
+            <th>URL original</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="http://{{ request.META.HTTP_HOST }}{{ object.short_url }}">http://{{ request.META.HTTP_HOST }}{{ object.short_url }}</a></td>
+            <td><a href="{{ object.url }}">{{ object.url }}</a></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
