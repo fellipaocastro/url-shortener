@@ -9,8 +9,8 @@ Setup
 .. code-block:: bash
 
     $ pip install requirements.txt
-    $ ./manage.py migrate --settings=url_shortener.settings.local
-    $ ./manage.py createsuperuser --settings=url_shortener.settings.local
+    $ ./manage.py migrate
+    $ ./manage.py createsuperuser
 
 Local server
 ------------
@@ -24,6 +24,7 @@ Production server
 
 .. code-block:: bash
 
+    $ ./manage.py collectstatic
     $ honcho start
 
 Test
@@ -46,11 +47,11 @@ Interactive Python
 
 .. code-block:: bash
 
-    $ ./manage.py shell --settings=url_shortener.settings.local
+    $ ./manage.py shell
 
 PostgreSQL interactive terminal 
 -------------------------------
 
 .. code-block:: bash
 
-    $ ./manage.py dbshell --settings=url_shortener.settings.local
+    $ ./manage.py dbshell

@@ -9,7 +9,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'url_shortener.settings.producti
 
 application = get_wsgi_application()
 
-if not settings.DEBUG:
+if settings.STATIC_ROOT and settings.STATICFILES_STORAGE:
     from whitenoise.django import DjangoWhiteNoise
 
     application = DjangoWhiteNoise(application)
