@@ -95,24 +95,31 @@ LOGGING = {
 [%(name)s]%(reset)-5s %(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S',
         },
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
     },
     'handlers': {
+        'null': {
+            'class': 'logging.NullHandler',
+        },
         'file': {
-            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': '/tmp/url-shortener.log',
             'formatter': 'colored',
         },
         'console': {
-            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'colored',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file', 'console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'handlers': ['file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
             'propagate': True,
         },
     },
