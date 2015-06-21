@@ -18,3 +18,7 @@ NOSE_ARGS = [
     '--cover-inclusive',
     '--cover-package=shorturls',
 ]
+
+LOGGING['loggers']['django']['handlers'] = ['file']
+
+LOGGING['loggers']['django']['level'] = 'DEBUG'

@@ -10,3 +10,7 @@ INSTALLED_APPS += (
 MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
+LOGGING['loggers']['django']['handlers'] = ['file']
+
+LOGGING['loggers']['django']['level'] = 'DEBUG'
