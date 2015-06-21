@@ -84,3 +84,36 @@ STATICFILES_DIRS = (
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/users/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'colored': {
+            '()': 'colorlog.ColoredFormatter',
+            'format': '%(purple)s%(asctime)s %(log_color)s%(levelname)s%(reset)s %(bg_blue)s\
+[%(name)s]%(reset)-5s %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/tmp/url-shortener.log',
+            'formatter': 'colored',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'colored'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
