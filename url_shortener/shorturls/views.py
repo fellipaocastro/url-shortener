@@ -1,6 +1,7 @@
 # coding: utf-8
 from __future__ import absolute_import, unicode_literals
 
+
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView
 from django.views.generic.base import RedirectView
